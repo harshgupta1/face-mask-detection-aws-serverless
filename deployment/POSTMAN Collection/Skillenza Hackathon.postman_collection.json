@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "22c3546c-74b2-4329-b683-e4146a827cc3",
+		"name": "Skillenza Hackathon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST IMAGE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "image/jpeg",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "image/jpeg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "file",
+					"file": {
+						"src": "/Users/harshgupta/Downloads/Skillenza-Hackathon/images/trump.jpg"
+					}
+				},
+				"url": {
+					"raw": "https://6q6fwzqde4.execute-api.us-east-1.amazonaws.com/dev/upload-image",
+					"protocol": "https",
+					"host": [
+						"6q6fwzqde4",
+						"execute-api",
+						"us-east-1",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"dev",
+						"upload-image"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
