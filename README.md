@@ -2,10 +2,12 @@
 
 ## SKILLENZA HACKATHON
 
-This application is used to detect if a person is wearing face mask or not. This demonstrates the use of aws serverless technologies like lambda.
+This application is used to detect if a person is wearing face mask or not. This demonstrates the use of aws serverless capabilities like lambda that can be used in applications where artificial intelligence is used to perform compute.
 
 <div align= "center">
-  <h4>Face Mask Detection system built using OpenCV, Keras/TensorFlow using Deep Learning and Computer Vision concepts in order to detect face masks in static images. The application is hosted on AWS and primarily makes use of AWS Lambda service. Image Files are uploaded via AWS APIGateway which invokes a lambda function to upload images to bucket. From there another lambda picks up the image file, does processing on the image, to detect if person is wearing face mask or not and uploads the processed file on another folder in the bucket</h4>
+  <b><p>Face Mask Detection system built using OpenCV, Keras/TensorFlow using Deep Learning and Computer Vision concepts in order to detect face masks in static images. The application is hosted on AWS and primarily makes use of AWS Lambda service. Image Files are uploaded via AWS APIGateway which invokes a lambda function to upload images to bucket. From there another lambda picks up the image file automatically as soon as the image is uploaded in bucket, then does processing on the image to detect, if the person is wearing face mask or not and uploads the processed file on another folder in the bucket.</p>
+    <p>This also demonstrates that Lambda file size limits on deployed artifacts is no more a barrier and can be used to perform compute on-the-fly on multiple images in parallel.</p>
+  </b>
 </div>
 
 ## :hourglass: Project Demo
@@ -22,10 +24,8 @@ This application is used to detect if a person is wearing face mask or not. This
 - [AWS Api Gateway]
 - [AWS S3]
 - [AWS Lambda]
+- [AWS EFS]
 - [AWS Linux 2]
-
-## :star: Features
-
 
 ## :key: Prerequisites
 
@@ -49,42 +49,38 @@ $ cd venviron/lib/python3.8/site-packages/
 $ zip -r9 ~/face-mask-detection.zip ./
 ```
 
-3. Now, run the following command in your Terminal/Command Prompt to install the libraries required
-```
-$ pip3 install -r requirements.txt
-```
+3. Create an EC2 instance and an Elastic File System and mount the ElasticFileSystem on the EC2 instance.
+
+4. Upload and extract the face-mask-detection.zip under a shared mounted drive
+
+5. Deploy the 'detect_mask_image_lambda.py' Lambda function on AWS and attach it to VPC and EFS. Also attach S3 as the Trigger for the lambda to execute.
+
+6. Deploy the 'image_upload_lambda.py' lambda function on AWS and attach API Gateway as the Trigger for the lambda to execute.
+
+7. Configure a new API on API Gateway and use it to Upload images 
 
 ## :bulb: Training
 
+An initial training is required so that mask detector model can be created.
 1. Open terminal. Go into the cloned project directory folder and type the following command:
 ```
 $ python3 train_mask_detector.py --dataset dataset
 ```
-## Working
+## :star: Working
+Image files are uploaded via POSTMAN and the returned output shows the image that is being uploaded.
 
-#### Image with Mask
-<p align="center">
-  <img src="readme_images/mask_image_upload.png">
-</p>
-<p align="center">Upload image with mask</p>
-
-<p align="center">
-  <img src="readme_images/af69cdc8-fa64-11ea-97d5-660320c7ebe0.jpg">
-</p>
-<p align="center">result</p>
-
-#### Image without Mask
+#### Image with Mask and without Mask
 <p align="center">
   <img src="readme_images/unmask_image_upload.png">
 </p>
 <p align="center">Upload image without mask</p>
 
 <p align="center">
-  <img src="readme_images/0d0d6732-fa65-11ea-97d5-660320c7ebe0.jpg">
+  <img src="readme_images/af69cdc8-fa64-11ea-97d5-660320c7ebe0.jpg">
 </p>
-<p align="center">result</p>
+<p align="center">Result</p>
 
 ## :heart: Owner
 Contributors
-1. [Harsh Gupta](https://github.com/harshgupta1)
-2. [Ashish Kanchan]
+1. [Harsh Gupta](https://www.linkedin.com/in/harshg2003/)
+2. [Ashish Kanchan](https://www.linkedin.com/in/ashish-kanchan-b4783462/)
