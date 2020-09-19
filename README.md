@@ -4,14 +4,14 @@
 
 This application is used to detect if a person is wearing face mask or not. This demonstrates the use of aws serverless capabilities like lambda that can be used in applications where artificial intelligence is used to perform compute.
 
-<div align= "center">
-  <b><p>Face Mask Detection system built using OpenCV, Keras/TensorFlow using Deep Learning and Computer Vision concepts in order to detect face masks in static images. The application is hosted on AWS and primarily makes use of AWS Lambda service. Image Files are uploaded via AWS APIGateway which invokes a lambda function to upload images to bucket. From there another lambda picks up the image file automatically as soon as the image is uploaded in bucket, then does processing on the image to detect, if the person is wearing face mask or not and uploads the processed file on another folder in the bucket.</p>
+<div align= "left">
+  <b><p>Face Mask Detection system built using Python, OpenCV, Keras/TensorFlow using Deep Learning and Computer Vision concepts in order to detect face masks in static images. The application is hosted on AWS and primarily makes use of AWS Lambda service. Image Files are uploaded via AWS APIGateway which invokes a lambda function to upload images to bucket. From there another lambda picks up the image file automatically as soon as the image is uploaded in bucket, then does processing on the image to detect, if the person is wearing face mask or not and uploads the processed file on another folder in the bucket.</p>
     <p>This also demonstrates that Lambda file size limits on deployed artifacts is no more a barrier and can be used to perform compute on-the-fly on multiple images in parallel.</p>
   </b>
 </div>
 
 ## :hourglass: Project Demo
-:movie_camera: [YouTube Demo Link]()
+:movie_camera: [YouTube Demo Link](https://youtu.be/vgXsuO7LOYU)
 
 ## :warning: Tech/framework used
 
