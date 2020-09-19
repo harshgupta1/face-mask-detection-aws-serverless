@@ -1,0 +1,52 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: >-
+  This lambda listens for any file upload event in input folder, downloads that
+  file, processes it to detect whether person has put on face mask or not, along
+  with probability factor and finally uploads it to output folder in same bucket
+Resources:
+  MaskDetectionLambda:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: detect_mask_image_lambda.handler
+      Runtime: python3.7
+      CodeUri: .
+      Description: >-
+        This lambda listens for any file upload event in input folder, downloads
+        that file, processes it to detect whether person has put on face mask or
+        not, along with probability factor and finally uploads it to output
+        folder in same bucket
+      MemorySize: 3008
+      Timeout: 60
+      Role: 'arn:aws:iam::048076714217:role/mask-detection-lambda-s3-role'
+      Events:
+        BucketEvent1:
+          Type: S3
+          Properties:
+            Bucket:
+              Ref: Bucket1
+            Events:
+              - 's3:ObjectCreated:*'
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix
+                    Value: input/
+      VpcConfig:
+        SecurityGroupIds:
+          - sg-cd651cee
+        SubnetIds:
+          - subnet-7f14d720
+          - subnet-5ba3653d
+          - subnet-124a8733
+          - subnet-987aecd5
+          - subnet-89a8a2b7
+          - subnet-a28139ac
+      Environment:
+        Variables:
+          MODEL_HOME: /mnt/inference/model
+          PYTHONPATH: /mnt/inference/lib
+      Tags:
+        'lambda-console:blueprint': s3-get-object-python
+  Bucket1:
+    Type: 'AWS::S3::Bucket'

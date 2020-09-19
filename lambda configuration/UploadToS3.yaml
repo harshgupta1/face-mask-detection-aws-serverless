@@ -1,0 +1,25 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: This function is used to upload image files to s3 bucket
+Resources:
+  UploadToS3:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: image_upload_lambda.handler
+      Runtime: python3.7
+      CodeUri: .
+      Description: This function is used to upload image files to s3 bucket
+      MemorySize: 128
+      Timeout: 40
+      Role: 'arn:aws:iam::048076714217:role/mask-detection-lambda-s3-role'
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /MyResource
+            Method: ANY
+        Api2:
+          Type: Api
+          Properties:
+            Path: /upload-image
+            Method: POST
