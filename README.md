@@ -21,11 +21,11 @@ This application is used to detect if a person is wearing face mask or not. This
 - [TensorFlow](https://www.tensorflow.org/)
 - [MobileNetV2](https://arxiv.org/abs/1801.04381)
 - [Python 3.7.9](https://www.python.org/downloads/release/python-379/)
-- [AWS Api Gateway] (https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html)
-- [AWS S3] (https://docs.aws.amazon.com/s3/)
-- [AWS Lambda] (https://docs.aws.amazon.com/lambda/)
-- [AWS EFS] (https://docs.aws.amazon.com/efs/)
-- [AWS SDK] (https://docs.aws.amazon.com/pythonsdk/)
+- [AWS Api Gateway](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html)
+- [AWS S3](https://docs.aws.amazon.com/s3/)
+- [AWS Lambda](https://docs.aws.amazon.com/lambda/)
+- [AWS EFS](https://docs.aws.amazon.com/efs/)
+- [AWS SDK](https://docs.aws.amazon.com/pythonsdk/)
 
 ## :key: Prerequisites
 
