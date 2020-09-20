@@ -20,12 +20,12 @@ This application is used to detect if a person is wearing face mask or not. This
 - [Keras](https://keras.io/)
 - [TensorFlow](https://www.tensorflow.org/)
 - [MobileNetV2](https://arxiv.org/abs/1801.04381)
-- [Python3.7.9](https://www.python.org/downloads/release/python-379/)
-- [AWS Api Gateway]
-- [AWS S3]
-- [AWS Lambda]
-- [AWS EFS]
-- [AWS Linux 2]
+- [Python 3.7.9](https://www.python.org/downloads/release/python-379/)
+- [AWS Api Gateway] (https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html)
+- [AWS S3] (https://docs.aws.amazon.com/s3/)
+- [AWS Lambda] (https://docs.aws.amazon.com/lambda/)
+- [AWS EFS] (https://docs.aws.amazon.com/efs/)
+- [AWS SDK] (https://docs.aws.amazon.com/pythonsdk/)
 
 ## :key: Prerequisites
 
@@ -53,11 +53,14 @@ $ zip -r9 ~/face-mask-detection.zip ./
 
 4. Upload and extract the face-mask-detection.zip under a shared mounted drive
 
-5. Deploy the 'detect_mask_image_lambda.py' Lambda function on AWS and attach it to VPC and EFS. Also attach S3 as the Trigger for the lambda to execute.
+5. Deploy the 'detect_mask_image_lambda.py' Lambda function on AWS and attach it to VPC and EFS. Configure environment variables. Also attach S3 as the Trigger for the lambda to execute.
+
+<img src="readme_images/MaskDetectionLambda_EnvironmentVariables.png">
 
 6. Deploy the 'image_upload_lambda.py' lambda function on AWS and attach API Gateway as the Trigger for the lambda to execute.
 
 7. Configure a new API on API Gateway and use it to Upload images 
+
 
 ## :bulb: Training
 
@@ -80,7 +83,7 @@ Image files are uploaded via POSTMAN and the returned output shows the image tha
 </p>
 <p align="center">Result</p>
 
-## :heart: Owner
+## :heart: Owners
 Contributors
 1. [Harsh Gupta](https://www.linkedin.com/in/harshg2003/)
 2. [Ashish Kanchan](https://www.linkedin.com/in/ashish-kanchan-b4783462/)
